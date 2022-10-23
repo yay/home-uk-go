@@ -49,11 +49,11 @@ func parseAndFilter() []Entry {
 		}
 	}
 
-	// println("Sorting entries...")
+	println("Sorting entries...")
 
-	// sort.Slice(entries, func(i, j int) bool {
-	// 	return entries[i].date.Year() < entries[j].date.Year()
-	// })
+	sort.Slice(entries, func(i, j int) bool {
+		return entries[i].date.Year() < entries[j].date.Year()
+	})
 
 	return entries
 }
@@ -109,7 +109,7 @@ func processAndSave(entries []Entry) {
 	// encoder := json.NewEncoder(outputFile)
 	// encoder.Encode(postcodeYearMap)
 
-	println("Serializing...")
+	println("Generating JSON...")
 	data, err := json.MarshalIndent(postcodeYearMap, "", "\t")
 	if err != nil {
 		log.Fatal(err)
