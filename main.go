@@ -63,14 +63,6 @@ type PostcodeYearTypeAgePricesMap = map[string]map[int]map[PropertyType]map[Prop
 func processAndSave(entries []Entry) {
 	println("Grouping entries...")
 
-	// outputFile, err := os.Create("stats.json")
-	// if err != nil {
-	// 	log.Fatal(err)
-	// }
-	// defer outputFile.Close()
-
-	// writer := bufio.NewWriter(outputFile)
-	// count := len(entries)
 	postcodeYearMap := make(PostcodeYearTypeAgePricesMap)
 	for _, entry := range entries {
 		yearTypeMap, ok := postcodeYearMap[entry.postcode1]
